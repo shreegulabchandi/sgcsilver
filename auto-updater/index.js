@@ -48,10 +48,10 @@ function calcSilverMetafieldPrice(livePriceInrPerGram) {
   return livePriceInrPerGram * 1.09;
 }
 
-// variant_price = (silver_price_per_gram + 35) × weight_g × 1.03 (3% tax)
+// variant_price = (silver_price_per_gram + 45) × weight_g
 // rounded UP to nearest ₹100  (e.g. 323 → 400, 367 → 400, 401 → 500)
 function calcVariantPrice(weightG, silverPricePerG) {
-  const raw = (silverPricePerG + 35) * weightG * 1.03;
+  const raw = (silverPricePerG + 45) * weightG;
   return Math.ceil(raw / 100) * 100;
 }
 
@@ -271,7 +271,7 @@ async function runUpdateCycle() {
         } else {
           newPrice = calcVariantPrice(weightG, silverPrice);
           updated++;
-          log(`   📦 ${product.title} [${variant.title}] | weight: ${weightG}g | (₹${silverPrice.toFixed(2)}+35) × ${weightG} × 1.03 = ₹${newPrice}`);
+          log(`   📦 ${product.title} [${variant.title}] | weight: ${weightG}g | (₹${silverPrice.toFixed(2)}+45) × ${weightG} = ₹${newPrice}`);
         }
 
         const ok = await updateVariantPrice(variant.id, newPrice);
