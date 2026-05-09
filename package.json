@@ -1,0 +1,10 @@
+{
+  "name": "sgc-auto-price-updater",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node auto-updater/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
