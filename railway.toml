@@ -1,3 +1,6 @@
+[build]
+rootDirectory = "auto-updater"
+
 [deploy]
 startCommand = "node index.js"
 restartPolicyType = "always"
